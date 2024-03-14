@@ -17,25 +17,22 @@ class LOLViewModel {
     var state: Bindable<LOLViewControllerStates> = Bindable(value: .loading)
     private var service = Service()
     
-    var championsList: [ChampionResponse] = []
     var diggoChampions: [DiggoChampion] = []
     
-    func numberOfRowsChampion() -> Int {
-        championsList.count
-    }
-    
-    func champion(of indexPath: IndexPath) -> ChampionResponse {
-        championsList[indexPath.row]
-    }
-    
     func loadDataChampions() {
-        service.getChampions { championRequest in
-            self.championsList.append(championRequest)
-        } onError: { error in
-            self.state.value = .error
-        } onSuccessDiggoChampions: { diggoChampions, requestWay  in
+        service.getChampions(champion: "Yone") { diggoChampions, requestWay in
             self.diggoChampions = diggoChampions
             self.state.value = .loaded
+        } onError: { error in
+            self.state.value = .error
         }
+
+        
+//        service.getChampions { diggoChampions, requestWay in
+//            self.diggoChampions = diggoChampions
+//            self.state.value = .loaded
+//        } onError: { error in
+//            self.state.value = .error
+//        }
     }
 }

@@ -27,7 +27,16 @@ class LOLCell: UICollectionViewCell {
         label.textColor = .black
         label.backgroundColor = .white
         label.textAlignment = .center
+//        label.numberOfLines = 0
         return label
+    }()
+    
+    lazy var imageDifficultyColor: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "circle.circle.fill")
+        imageView.clipsToBounds = true
+        return imageView
     }()
     
     override init(frame: CGRect) {
@@ -39,10 +48,11 @@ class LOLCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(response: DiggoChampion) {
-        guard let url = URL(string: response.image) else { return }
+    func configure(diggoChampion: DiggoChampion) {
+        guard let url = URL(string: diggoChampion.image) else { return }
         imageChamp.sd_setImage(with: url)
-        nameChamp.text = response.name
+        nameChamp.text = diggoChampion.name
+        imageDifficultyColor.tintColor = diggoChampion.colorDifficulty
     }
     
     private func setupView() {
@@ -53,6 +63,7 @@ class LOLCell: UICollectionViewCell {
     private func setHierarchy () {
         addSubview(imageChamp)
         addSubview(nameChamp)
+        addSubview(imageDifficultyColor)
     }
     
     private func setConstraints() {
@@ -64,6 +75,9 @@ class LOLCell: UICollectionViewCell {
             
             nameChamp.centerXAnchor.constraint(equalTo: imageChamp.centerXAnchor),
             nameChamp.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            
+            imageDifficultyColor.leadingAnchor.constraint(equalTo: nameChamp.trailingAnchor, constant: 2),
+            imageDifficultyColor.centerYAnchor.constraint(equalTo: nameChamp.centerYAnchor),
         ])
     }
 }

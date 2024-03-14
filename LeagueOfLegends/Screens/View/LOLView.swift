@@ -28,6 +28,7 @@ class LOLView: UIView {
         collection.dataSource = self
         collection.register(LOLCell.self, forCellWithReuseIdentifier: LOLCell.identifier)
         collection.alwaysBounceVertical = true
+        collection.showsVerticalScrollIndicator = false
         return collection
     }()
     
@@ -52,8 +53,8 @@ class LOLView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(championResponse: [DiggoChampion]) {
-        self.diggoChampionsList = championResponse
+    func configure(diggoChampion: [DiggoChampion]) {
+        self.diggoChampionsList = diggoChampion
     }
     
     private func setupView() {
@@ -90,7 +91,7 @@ extension LOLView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LOLCell.identifier, for: indexPath) as? LOLCell else { return UICollectionViewCell() }
-        cell.configure(response: diggoChampionsList[indexPath.row])
+        cell.configure(diggoChampion: diggoChampionsList[indexPath.row])
         return cell
     }
 }

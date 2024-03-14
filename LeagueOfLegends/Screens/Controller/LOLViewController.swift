@@ -43,7 +43,7 @@ class LOLViewController: UIViewController {
     }
     
     func showLoadedState() {
-        lolView.configure(championResponse: viewModel.diggoChampions)
+        lolView.configure(diggoChampion: viewModel.diggoChampions)
         lolView.collectionView.reloadData()
         lolView.spinner.stopAnimating()
     }
