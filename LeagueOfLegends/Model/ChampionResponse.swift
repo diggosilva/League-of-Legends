@@ -7,30 +7,6 @@
 
 import Foundation
 
-//// MARK: - ChampionResponse
-//struct ChampionResponse: Codable {
-//    let champions: [DiggoChampion]
-//    
-//    // MARK: - Champion
-//    struct DiggoChampion: Codable {
-//        let node: Node
-//    }
-//    
-//    // MARK: - Node
-//    struct Node: Codable {
-//        let championName: String
-//        let championSplash: String
-//        let difficulty: Int
-//        
-//        enum CodingKeys: String, CodingKey {
-//            case championName = "champion_name"
-//            case championSplash = "champion_splash"
-//            case difficulty
-//        }
-//    }
-//}
-
-
 // MARK: - ChampionResponse
 struct ChampionResponse: Codable {
     let type: TypeEnum

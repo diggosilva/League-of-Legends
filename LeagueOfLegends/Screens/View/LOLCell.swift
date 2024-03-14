@@ -27,7 +27,6 @@ class LOLCell: UICollectionViewCell {
         label.textColor = .black
         label.backgroundColor = .white
         label.textAlignment = .center
-//        label.numberOfLines = 0
         return label
     }()
     
@@ -49,8 +48,7 @@ class LOLCell: UICollectionViewCell {
     }
     
     func configure(diggoChampion: DiggoChampion) {
-        guard let url = URL(string: diggoChampion.image) else { return }
-        imageChamp.sd_setImage(with: url)
+        imageChamp.sd_setImage(with: diggoChampion.imageUrl, placeholderImage: UIImage(systemName: "circle.slash")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal))
         nameChamp.text = diggoChampion.name
         imageDifficultyColor.tintColor = diggoChampion.colorDifficulty
     }

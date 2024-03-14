@@ -30,9 +30,7 @@ final class Service: ServiceProtocol {
     
     let championsList: [String] = []
     
-    func getChampions(champion: String, onSuccessDiggoChampions: @escaping([DiggoChampion], RequestWay) -> Void, onError: @escaping(Error) -> Void) {
-        
-        var imageURL = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion)_0.jpg"
+    func getChampions(onSuccessDiggoChampions: @escaping([DiggoChampion], RequestWay) -> Void, onError: @escaping(Error) -> Void) {
         
         let urlRequest = URLRequest(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/14.5.1/data/pt_BR/champion.json")!)
         
@@ -46,13 +44,14 @@ final class Service: ServiceProtocol {
                     var diggoChampions: [DiggoChampion] = []
                     
                     for champion in response.data {
-                        diggoChampions.append(DiggoChampion(name: champion.value.name, image: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champion.value.name)_0.jpg", difficulty: champion.value.info.difficulty))
-                        print(champion.value.name)
+                        diggoChampions.append(DiggoChampion(name: champion.value.name, image: champion.value.image.full, difficulty: champion.value.info.difficulty))
+                    }
+                    diggoChampions = diggoChampions.sorted { (champion1, champion2) -> Bool in
+                        return champion1.name.caseInsensitiveCompare(champion2.name) == .orderedAscending
                     }
                     
                     // Dados do Servidor
                     onSuccessDiggoChampions(diggoChampions, .online)
-//                    print("DEBUG: SERVERDATA aqui: \(diggoChampions)")
                 } else {
                     onError(NSError(domain: "DEBUG: Erro ao decodificar os dados Mockados.", code: 1))
                 }
@@ -60,52 +59,4 @@ final class Service: ServiceProtocol {
         })
         dataTask?.resume()
     }
-    
-    
-//    func getChampions(onSuccessDiggoChampions: @escaping([DiggoChampion], RequestWay) -> Void, onError: @escaping(Error) -> Void) {
-//        let headers = [
-//            "X-RapidAPI-Key": "d9c20cdbd1msh04b90ccfabbe987p1dee69jsna0ec5145b3b7",
-//            "X-RapidAPI-Host": "league-of-legends-champions.p.rapidapi.com"
-//        ]
-//        
-//        let url = URL(string: "https://league-of-legends-champions.p.rapidapi.com/champions/pt-br?page=0&size=10")!
-//        var urlRequest = URLRequest(url: url)
-//        urlRequest.httpMethod = "GET"
-//        urlRequest.allHTTPHeaderFields = headers
-//        
-//        dataTask = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) -> Void in
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                if let response = response as? HTTPURLResponse {
-//                    print("DEBUG: Status Code: \(response.statusCode)")
-//                }
-//                if let data = data,
-//                   let response = try? JSONDecoder().decode(ChampionResponse.self, from: data) {
-//                    var diggoChampions: [DiggoChampion] = []
-//                    
-//                    for champion in response.data {
-//                        diggoChampions.append(DiggoChampion(name: champion.value.name, image: champion.value.image.full, difficulty: champion.value.info.difficulty))
-//                    }
-//                    
-//                    // Dados do Servidor
-//                    onSuccessDiggoChampions(diggoChampions, .online)
-////                    print("DEBUG: SERVERDATA aqui: \(diggoChampions)")
-//                } else if let path = Bundle.main.path(forResource: "champions", ofType: "json"),
-//                          let data = try? Data(contentsOf: URL(filePath: path)),
-//                          let response = try? JSONDecoder().decode(ChampionResponse.self, from: data) {
-//                    var diggoChampions: [DiggoChampion] = []
-//                    
-//                    for champion in response.data {
-//                        diggoChampions.append(DiggoChampion(name: champion.value.name, image: champion.value.image.full, difficulty: champion.value.info.difficulty))
-//                    }
-//                    
-//                    // Dados Locais
-//                    onSuccessDiggoChampions(diggoChampions, .local)
-////                    print("DEBUG: MOCKDATA aqui: \(diggoChampions)")
-//                } else {
-//                    onError(NSError(domain: "DEBUG: Erro ao decodificar os dados Mockados.", code: 1))
-//                }
-//            }
-//        })
-//        dataTask?.resume()
-//    }
 }

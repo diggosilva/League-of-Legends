@@ -19,4 +19,9 @@ struct DiggoChampion: Codable {
         }
         return UIColor.systemGreen
     }
+    
+    var imageUrl: URL? {
+        let nameChamp = name.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "'", with: "")
+        return URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(nameChamp)_0.jpg")
+    }
 }

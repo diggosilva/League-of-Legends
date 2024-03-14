@@ -20,19 +20,11 @@ class LOLViewModel {
     var diggoChampions: [DiggoChampion] = []
     
     func loadDataChampions() {
-        service.getChampions(champion: "Yone") { diggoChampions, requestWay in
+        service.getChampions { diggoChampions, requestWay in
             self.diggoChampions = diggoChampions
             self.state.value = .loaded
         } onError: { error in
             self.state.value = .error
         }
-
-        
-//        service.getChampions { diggoChampions, requestWay in
-//            self.diggoChampions = diggoChampions
-//            self.state.value = .loaded
-//        } onError: { error in
-//            self.state.value = .error
-//        }
     }
 }
