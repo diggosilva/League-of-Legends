@@ -18,11 +18,21 @@ class LOLViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "League Of Legends"
-        
-        view.backgroundColor = .systemBackground
+        setNavBar()
         handleStates()
         viewModel.loadDataChampions()
+    }
+    
+    func setNavBar() {
+        title = "League Of Legends"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapPlusButton))
+        view.backgroundColor = .systemBackground
+    }
+    
+    @objc func didTapPlusButton() {
+        let filterVC = FilterViewController(tags: viewModel.tags)
+        filterVC.filterView.tags = filterVC.viewModel.tags
+        navigationController?.pushViewController(filterVC, animated: true)
     }
     
     func handleStates() {

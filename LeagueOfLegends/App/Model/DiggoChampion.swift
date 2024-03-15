@@ -12,6 +12,7 @@ struct DiggoChampion: Codable {
     let name: String
     let image: String
     let difficulty: Int
+    let tags: [String]
     
     var colorDifficulty: UIColor {
         if difficulty > 5 {

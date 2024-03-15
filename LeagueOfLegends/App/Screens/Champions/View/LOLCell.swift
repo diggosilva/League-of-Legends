@@ -72,7 +72,7 @@ class LOLCell: UICollectionViewCell {
             imageChamp.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             nameChamp.centerXAnchor.constraint(equalTo: imageChamp.centerXAnchor),
-            nameChamp.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            nameChamp.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             
             imageDifficultyColor.leadingAnchor.constraint(equalTo: nameChamp.trailingAnchor, constant: 2),
             imageDifficultyColor.centerYAnchor.constraint(equalTo: nameChamp.centerYAnchor),
