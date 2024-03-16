@@ -17,21 +17,21 @@ class FilterViewModel {
         self.tags = tags
     }
     
-    func loadDataChampions() {
-        service.getChampions { diggoChampions in
-            self.diggoChampions = diggoChampions
-            var uniqueTags: Set<String> = []
-            
-            for champion in diggoChampions {
-                for tag in champion.tags {
-                    uniqueTags.insert(tag)
-                }
-            }
-            self.tags = Array(uniqueTags)
-            self.tags = self.tags.sorted()
-            print("FILTER: \(self.tags)")
-        } onError: { error in
-            
-        }
-    }
+//    func loadDataChampions() {
+//        service.getChampions { diggoChampions in
+//            self.diggoChampions = diggoChampions
+//            var uniqueTags: Set<String> = []
+//            
+//            for champion in diggoChampions {
+//                for tag in champion.tags {
+//                    uniqueTags.insert(tag)
+//                }
+//            }
+//            self.tags = Array(uniqueTags)
+//            self.tags = self.tags.sorted()
+//            print("FILTER: \(self.tags)")
+//        } onError: { error in
+//            
+//        }
+//    }
 }

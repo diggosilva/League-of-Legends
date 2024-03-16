@@ -29,11 +29,11 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationController()
-        viewModel.loadDataChampions()
+//        viewModel.loadDataChampions()
     }
     
     func configNavigationController() {
-        title = "Tags"
+        title = "Roles"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton))
         view.backgroundColor = .systemBackground
     }

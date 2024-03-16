@@ -10,13 +10,20 @@ import UIKit
 class FilterCell: UICollectionViewCell {
     static let identifier = "TagsCell"
     
-    lazy var tagImage: UIImageView = {
+    lazy var imageTag: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.image = UIImage(named: "assassin")
         image.clipsToBounds = true
         return image
+    }()
+    
+    lazy var nameTag: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -28,10 +35,9 @@ class FilterCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(viewModel: [String]) {
-        for tag in viewModel {
-            tagImage.image = UIImage(named: tag)
-        }
+    func configure(roles: String) {
+        nameTag.text = roles
+        imageTag.image = UIImage(named: roles)
     }
     
     private func setupView() {
@@ -40,15 +46,19 @@ class FilterCell: UICollectionViewCell {
     }
     
     private func setHierarchy () {
-        addSubview(tagImage)
+        addSubview(imageTag)
+        addSubview(nameTag)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            tagImage.topAnchor.constraint(equalTo: topAnchor),
-            tagImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tagImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tagImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageTag.topAnchor.constraint(equalTo: topAnchor),
+            imageTag.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageTag.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageTag.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            nameTag.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nameTag.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
         ])
     }
 }
