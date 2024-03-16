@@ -11,25 +11,25 @@ class FilterViewModel {
     var service = Service()
     
     var diggoChampions: [DiggoChampion] = []
-    var tags: [String]
+    var roles: [String]
     
-    init(tags: [String]) {
-        self.tags = tags
+    init(roles: [String]) {
+        self.roles = roles
     }
     
 //    func loadDataChampions() {
 //        service.getChampions { diggoChampions in
 //            self.diggoChampions = diggoChampions
-//            var uniqueTags: Set<String> = []
+//            var uniqueRoles: Set<String> = []
 //            
 //            for champion in diggoChampions {
-//                for tag in champion.tags {
-//                    uniqueTags.insert(tag)
+//                for role in champion.roles {
+//                    uniqueRoles.insert(role)
 //                }
 //            }
-//            self.tags = Array(uniqueTags)
-//            self.tags = self.tags.sorted()
-//            print("FILTER: \(self.tags)")
+//            self.roles = Array(uniqueRoles)
+//            self.roles = self.roles.sorted()
+//            print("FILTER: \(self.roles)")
 //        } onError: { error in
 //            
 //        }

@@ -22,7 +22,6 @@ class LOLCell: UICollectionViewCell {
     lazy var nameChamp: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "NOME AQUI"
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         label.textColor = .black
         label.backgroundColor = .white

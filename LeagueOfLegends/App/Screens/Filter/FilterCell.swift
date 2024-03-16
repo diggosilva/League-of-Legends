@@ -1,5 +1,5 @@
 //
-//  TagsCell.swift
+//  FilterCell.swift
 //  LeagueOfLegends
 //
 //  Created by Diggo Silva on 15/03/24.
@@ -7,27 +7,26 @@
 
 import UIKit
 
-class FilterCell: UICollectionViewCell {
-    static let identifier = "TagsCell"
+class FilterCell: UITableViewCell {
+    static let identifier = "FilterCell"
     
-    lazy var imageTag: UIImageView = {
+    lazy var imageRole: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
-        image.image = UIImage(named: "assassin")
+        image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 10
         image.clipsToBounds = true
         return image
     }()
     
-    lazy var nameTag: UILabel = {
+    lazy var nameRole: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
     
@@ -36,8 +35,8 @@ class FilterCell: UICollectionViewCell {
     }
     
     func configure(roles: String) {
-        nameTag.text = roles
-        imageTag.image = UIImage(named: roles)
+        nameRole.text = roles
+        imageRole.image = UIImage(named: roles)
     }
     
     private func setupView() {
@@ -46,19 +45,20 @@ class FilterCell: UICollectionViewCell {
     }
     
     private func setHierarchy () {
-        addSubview(imageTag)
-        addSubview(nameTag)
+        addSubview(imageRole)
+        addSubview(nameRole)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            imageTag.topAnchor.constraint(equalTo: topAnchor),
-            imageTag.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageTag.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageTag.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageRole.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            imageRole.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            imageRole.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            imageRole.widthAnchor.constraint(equalToConstant: 80),
             
-            nameTag.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nameTag.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            nameRole.centerYAnchor.constraint(equalTo: centerYAnchor),
+            nameRole.leadingAnchor.constraint(equalTo: imageRole.trailingAnchor, constant: 10),
+            nameRole.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
     }
 }

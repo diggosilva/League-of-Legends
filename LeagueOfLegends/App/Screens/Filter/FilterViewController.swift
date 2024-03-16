@@ -1,5 +1,5 @@
 //
-//  TagsViewController.swift
+//  FilterViewController.swift
 //  LeagueOfLegends
 //
 //  Created by Diggo Silva on 15/03/24.
@@ -12,8 +12,8 @@ class FilterViewController: UIViewController {
     var filterView = FilterView()
     var viewModel: FilterViewModel
     
-    init(tags: [String]) {
-        self.viewModel = FilterViewModel(tags: tags)
+    init(roles: [String]) {
+        self.viewModel = FilterViewModel(roles: roles)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,6 +39,6 @@ class FilterViewController: UIViewController {
     }
     
     @objc func didTapDoneButton() {
-        print("Volta pra primeira tela filtrando a Tag selecionada")
+        print("Volta pra primeira tela filtrando a Role selecionada")
     }
 }

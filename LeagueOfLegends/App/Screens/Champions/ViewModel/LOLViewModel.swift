@@ -18,25 +18,34 @@ class LOLViewModel {
     private var service = Service()
     
     var diggoChampions: [DiggoChampion] = []
-    var tags: [String] = []
+    var roles: [String] = []
+    var filters: [Filter] = []
     
     func loadDataChampions() {
         service.getChampions { diggoChampions in
             self.diggoChampions = diggoChampions
-            var uniqueTags: Set<String> = []
+            var uniqueRoles: Set<String> = []
             
             for champion in diggoChampions {
-                for tag in champion.tags {
-                    uniqueTags.insert(tag)
+                for role in champion.roles {
+                    uniqueRoles.insert(role)
                 }
             }
-            self.tags = Array(uniqueTags)
-            self.tags = self.tags.sorted()
-            print("Alfabeticamente: \(self.tags)")
+            self.roles = Array(uniqueRoles)
+            self.roles = self.roles.sorted()
+            print("Alfabeticamente: \(self.roles)")
+            
+            // Transforma o [String] em um [Filter]
+            self.filters = self.roles.map { Filter(name: $0, isSelected: false) }
             
             self.state.value = .loaded
         } onError: { error in
             self.state.value = .error
         }
     }
+}
+
+struct Filter {
+    let name: String
+    var isSelected: Bool
 }

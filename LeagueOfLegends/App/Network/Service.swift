@@ -36,7 +36,7 @@ final class Service: ServiceProtocol {
                     var diggoChampions: [DiggoChampion] = []
                     
                     for champion in response.data {
-                        diggoChampions.append(DiggoChampion(name: champion.value.name, image: champion.value.image.full, difficulty: champion.value.info.difficulty, tags: champion.value.tags))
+                        diggoChampions.append(DiggoChampion(name: champion.value.name, image: champion.value.image.full, difficulty: champion.value.info.difficulty, roles: champion.value.tags))
                     }
                     diggoChampions = diggoChampions.sorted { (champion1, champion2) -> Bool in
                         return champion1.name.caseInsensitiveCompare(champion2.name) == .orderedAscending

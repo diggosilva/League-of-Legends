@@ -30,8 +30,8 @@ class LOLViewController: UIViewController {
     }
     
     @objc func didTapPlusButton() {
-        let filterVC = FilterViewController(tags: viewModel.tags)
-        filterVC.filterView.tags = filterVC.viewModel.tags
+        let filterVC = FilterViewController(roles: viewModel.roles)
+        filterVC.filterView.roles = filterVC.viewModel.roles
         navigationController?.pushViewController(filterVC, animated: true)
     }
     
