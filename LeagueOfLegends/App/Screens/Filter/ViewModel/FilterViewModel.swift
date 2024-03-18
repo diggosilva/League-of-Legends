@@ -16,4 +16,8 @@ class FilterViewModel {
     init(roles: [Filter]) {
         self.roles = roles
     }
+    
+    func numberOfRows() -> Int {
+        roles.count
+    }
 }

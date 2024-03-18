@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol FilterViewDelegate: AnyObject {
+    func didUpdateFilters(filters: [Filter])
+}
+
 class FilterView: UIView {
+    
+    weak var delegate: FilterViewDelegate?
+    
     lazy var filterTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +71,7 @@ extension FilterView: UITableViewDelegate, UITableViewDataSource {
         print("Você tocou na célula \(indexPath.row)")
         filters[indexPath.row].isSelected.toggle()
         tableView.reloadData()
+        
         print(filters)
     }
 }

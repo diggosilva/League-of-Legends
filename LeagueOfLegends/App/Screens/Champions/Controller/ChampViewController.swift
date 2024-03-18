@@ -8,8 +8,8 @@
 import UIKit
 
 class ChampViewController: UIViewController {
-    private var champView = ChampView()
-    private lazy var viewModel = ChampViewModel()
+    var champView = ChampView()
+    lazy var viewModel = ChampViewModel()
     
     override func loadView() {
         super.loadView()
@@ -71,5 +71,13 @@ class ChampViewController: UIViewController {
         alert.addAction(ok)
         alert.addAction(nok)
         present(alert, animated: true)
+    }
+}
+
+extension ChampViewController: FilterViewDelegate {
+    func didUpdateFilters(filters: [Filter]) {
+        print("Volta pra primeira tela filtrando a Role selecionada")
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }

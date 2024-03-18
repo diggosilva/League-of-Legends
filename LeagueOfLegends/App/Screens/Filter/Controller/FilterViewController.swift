@@ -12,8 +12,11 @@ class FilterViewController: UIViewController {
     var filterView = FilterView()
     var viewModel: FilterViewModel
     
-    init(roles: [Filter]) {
+    var delegate: FilterViewDelegate?
+    
+    init(roles: [Filter], delegate: FilterViewDelegate?) {
         self.viewModel = FilterViewModel(roles: roles)
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,8 +42,7 @@ class FilterViewController: UIViewController {
     
     @objc func didTapDoneButton() {
         print("Volta pra primeira tela filtrando a Role selecionada")
-        let champVC = ChampViewController()
-        
+        delegate?.didUpdateFilters(filters: filterView.filters)
         navigationController?.popToRootViewController(animated: true)
     }
 }
