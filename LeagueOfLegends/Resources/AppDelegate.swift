@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  LOL
+//  LeagueOfLegends
 //
 //  Created by Diggo Silva on 11/03/24.
 //

@@ -1,5 +1,5 @@
 //
-//  LOLViewController.swift
+//  ChampViewController.swift
 //  LeagueOfLegends
 //
 //  Created by Diggo Silva on 11/03/24.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class LOLViewController: UIViewController {
-    private var lolView = LOLView()
-    private lazy var viewModel = LOLViewModel()
+class ChampViewController: UIViewController {
+    private var champView = ChampView()
+    private lazy var viewModel = ChampViewModel()
     
     override func loadView() {
         super.loadView()
-        view = lolView
+        view = champView
     }
 
     override func viewDidLoad() {
@@ -25,13 +25,14 @@ class LOLViewController: UIViewController {
     
     func setNavBar() {
         title = "League Of Legends"
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapPlusButton))
         view.backgroundColor = .systemBackground
     }
     
     @objc func didTapPlusButton() {
-        let filterVC = FilterViewController(roles: viewModel.roles)
-        filterVC.filterView.roles = filterVC.viewModel.roles
+        let filterVC = FilterViewController(roles: viewModel.filters)
+        filterVC.filterView.filters = filterVC.viewModel.roles
         navigationController?.pushViewController(filterVC, animated: true)
     }
     
@@ -49,13 +50,13 @@ class LOLViewController: UIViewController {
     }
     
     func showLoadingState() {
-        lolView.removeFromSuperview()
+        champView.removeFromSuperview()
     }
     
     func showLoadedState() {
-        lolView.configure(diggoChampion: viewModel.diggoChampions)
-        lolView.collectionView.reloadData()
-        lolView.spinner.stopAnimating()
+        champView.configure(diggoChampion: viewModel.diggoChampions)
+        champView.collectionView.reloadData()
+        champView.spinner.stopAnimating()
     }
     
     func showErrorState() {
@@ -64,8 +65,8 @@ class LOLViewController: UIViewController {
             self.viewModel.loadDataChampions()
         }
         let nok = UIAlertAction(title: "Não", style: .cancel) { action in
-            self.lolView.spinner.stopAnimating()
-            self.lolView.errorLabel.isHidden = false
+            self.champView.spinner.stopAnimating()
+            self.champView.errorLabel.isHidden = false
         }
         alert.addAction(ok)
         alert.addAction(nok)

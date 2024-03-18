@@ -14,6 +14,7 @@
 		925555EE2BA0F4FD00DB8AE9 /* LOLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555ED2BA0F4FD00DB8AE9 /* LOLView.swift */; };
 		925555F02BA0F55500DB8AE9 /* LOLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555EF2BA0F55500DB8AE9 /* LOLCell.swift */; };
 		925D53042BA225C40005106F /* DiggoChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D53032BA225C40005106F /* DiggoChampion.swift */; };
+		92752C162BA886F800F79631 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92752C152BA886F800F79631 /* Filter.swift */; };
 		92C1D6902B9F66020070E6D8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1D68F2B9F66020070E6D8 /* Service.swift */; };
 		92C1D6942B9F761D0070E6D8 /* champions.json in Resources */ = {isa = PBXBuildFile; fileRef = 92C1D6932B9F761D0070E6D8 /* champions.json */; };
 		92E06A572B9F62C0007F86D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E06A562B9F62C0007F86D8 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		925555ED2BA0F4FD00DB8AE9 /* LOLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLView.swift; sourceTree = "<group>"; };
 		925555EF2BA0F55500DB8AE9 /* LOLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLCell.swift; sourceTree = "<group>"; };
 		925D53032BA225C40005106F /* DiggoChampion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiggoChampion.swift; sourceTree = "<group>"; };
+		92752C152BA886F800F79631 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		92C1D68F2B9F66020070E6D8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		92C1D6932B9F761D0070E6D8 /* champions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champions.json; sourceTree = "<group>"; };
 		92E06A532B9F62C0007F86D8 /* LeagueOfLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeagueOfLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,31 @@
 			path = MockData;
 			sourceTree = "<group>";
 		};
+		92752C122BA886D300F79631 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92F253CD2BA4AA78004F9F3E /* FilterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		92752C132BA886DC00F79631 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92F253CB2BA4A7D5004F9F3E /* FilterView.swift */,
+				92F253CF2BA4B515004F9F3E /* FilterCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		92752C142BA886E700F79631 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				92F253D12BA4BD5E004F9F3E /* FilterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		92C1D68E2B9F65960070E6D8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,10 +231,10 @@
 		92F253CA2BA4A6E4004F9F3E /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				92F253CD2BA4AA78004F9F3E /* FilterViewController.swift */,
-				92F253CB2BA4A7D5004F9F3E /* FilterView.swift */,
-				92F253CF2BA4B515004F9F3E /* FilterCell.swift */,
-				92F253D12BA4BD5E004F9F3E /* FilterViewModel.swift */,
+				92752C122BA886D300F79631 /* Controller */,
+				92752C132BA886DC00F79631 /* View */,
+				92752C142BA886E700F79631 /* ViewModel */,
+				92752C152BA886F800F79631 /* Filter.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -336,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F253D22BA4BD5E004F9F3E /* FilterViewModel.swift in Sources */,
+				92752C162BA886F800F79631 /* Filter.swift in Sources */,
 				92E06A5B2B9F62C0007F86D8 /* LOLViewController.swift in Sources */,
 				925555EC2BA0EFA400DB8AE9 /* Bindable.swift in Sources */,
 				925555EE2BA0F4FD00DB8AE9 /* LOLView.swift in Sources */,

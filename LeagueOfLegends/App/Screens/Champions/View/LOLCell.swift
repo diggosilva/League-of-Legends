@@ -1,5 +1,5 @@
 //
-//  LOLCell.swift
+//  ChampCell.swift
 //  LeagueOfLegends
 //
 //  Created by Diggo Silva on 12/03/24.
@@ -8,8 +8,8 @@
 import UIKit
 import SDWebImage
 
-class LOLCell: UICollectionViewCell {
-    static let identifier = "LOLCell"
+class ChampCell: UICollectionViewCell {
+    static let identifier = "ChampCell"
     
     lazy var imageChamp: UIImageView = {
         let imageView = UIImageView()

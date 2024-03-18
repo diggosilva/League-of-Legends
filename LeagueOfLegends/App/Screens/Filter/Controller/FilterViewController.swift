@@ -12,7 +12,7 @@ class FilterViewController: UIViewController {
     var filterView = FilterView()
     var viewModel: FilterViewModel
     
-    init(roles: [String]) {
+    init(roles: [Filter]) {
         self.viewModel = FilterViewModel(roles: roles)
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,11 +28,10 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configNavigationController()
-//        viewModel.loadDataChampions()
+        setNavBar()
     }
     
-    func configNavigationController() {
+    func setNavBar() {
         title = "Roles"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton))
         view.backgroundColor = .systemBackground
@@ -40,5 +39,8 @@ class FilterViewController: UIViewController {
     
     @objc func didTapDoneButton() {
         print("Volta pra primeira tela filtrando a Role selecionada")
+        let champVC = ChampViewController()
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -15,10 +15,10 @@ class FilterView: UIView {
         tableView.dataSource = self
         tableView.register(FilterCell.self, forCellReuseIdentifier: FilterCell.identifier)
         tableView.rowHeight = 100
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
         return tableView
     }()
     
-    var roles: [String] = []
     var filters: [Filter] = []
     
     override init(frame: CGRect) {
@@ -51,16 +51,19 @@ class FilterView: UIView {
 
 extension FilterView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roles.count
+        return filters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as? FilterCell else { return UITableViewCell() }
-        cell.configure(roles: roles[indexPath.row])
+        cell.configure(roles: filters[indexPath.row], cell: cell, isSelected: filters[indexPath.row].isSelected)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Você tocou na célula \(indexPath.row)")
+        filters[indexPath.row].isSelected.toggle()
+        tableView.reloadData()
+        print(filters)
     }
 }

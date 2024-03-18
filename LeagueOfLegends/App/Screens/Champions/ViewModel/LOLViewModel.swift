@@ -1,5 +1,5 @@
 //
-//  LOLViewModel.swift
+//  ChampViewModel.swift
 //  LeagueOfLegends
 //
 //  Created by Diggo Silva on 12/03/24.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum LOLViewControllerStates {
+enum ChampViewControllerStates {
     case loading
     case loaded
     case error
 }
 
-class LOLViewModel {
-    var state: Bindable<LOLViewControllerStates> = Bindable(value: .loading)
+class ChampViewModel {
+    var state: Bindable<ChampViewControllerStates> = Bindable(value: .loading)
     private var service = Service()
     
     var diggoChampions: [DiggoChampion] = []
@@ -43,9 +43,4 @@ class LOLViewModel {
             self.state.value = .error
         }
     }
-}
-
-struct Filter {
-    let name: String
-    var isSelected: Bool
 }
