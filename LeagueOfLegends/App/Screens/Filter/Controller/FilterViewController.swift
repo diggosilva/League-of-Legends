@@ -13,13 +13,14 @@ protocol FilterViewControllerDelegate: AnyObject {
 
 class FilterViewController: UIViewController {
     
-    var filterView = FilterView()
+    var filterView: FilterView
     var viewModel: FilterViewModel
     
     weak var delegate: FilterViewControllerDelegate?
     
-    init(roles: [Filter], delegate: FilterViewControllerDelegate?) {
-        self.viewModel = FilterViewModel(roles: roles)
+    init(filters: [Filter], delegate: FilterViewControllerDelegate?) {
+        self.viewModel = FilterViewModel(filters: filters)
+        self.filterView = FilterView(viewModel: self.viewModel)
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,8 +46,7 @@ class FilterViewController: UIViewController {
     }
     
     @objc func didTapDoneButton() {
-        print("Volta pra primeira tela filtrando a Role selecionada")
-        delegate?.didUpdateFilters(filters: filterView.filters)
+        delegate?.didUpdateFilters(filters: viewModel.filters)
         navigationController?.popToRootViewController(animated: true)
     }
 }

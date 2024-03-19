@@ -17,13 +17,14 @@ class ChampViewModel {
     var state: Bindable<ChampViewControllerStates> = Bindable(value: .loading)
     private var service = Service()
     
-    var diggoChampions: [DiggoChampion] = []
+    var backupChampions: [DiggoChampion] = []
+    var filteredChampions: [DiggoChampion] = []
     var filters: [Filter] = []
-    var roleChampionsSelected: [DiggoChampion] = []
     
     func loadDataChampions() {
         service.getChampions { diggoChampions in
-            self.diggoChampions = diggoChampions
+            self.backupChampions = diggoChampions
+            self.filteredChampions = self.backupChampions
             var uniqueRoles: Set<String> = []
             
             for champion in diggoChampions {
@@ -43,7 +44,20 @@ class ChampViewModel {
         }
     }
     
-    func createRoleChampionsSelected() {
-        let filtered = diggoChampions.filter { $0.roles == filters.map { $0.isSelected == true } }
+    func updateChampions(filters: [Filter]) {
+        self.filters = filters
+        let selectedFilters = self.filters.filter({ $0.isSelected })
+        let selectedRoles = selectedFilters.map({ $0.name })
+        
+        self.filteredChampions = backupChampions.filter({ $0.roles.contains(selectedRoles) })
+        self.state.value = .loaded
+    }
+    
+    func numberOfRows() -> Int {
+        return filteredChampions.count
+    }
+    
+    func cellForRowAt(indexPath: IndexPath) -> DiggoChampion {
+        return filteredChampions[indexPath.row]
     }
 }

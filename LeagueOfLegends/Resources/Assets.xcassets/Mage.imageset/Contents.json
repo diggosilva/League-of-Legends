@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Mage.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Mage.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

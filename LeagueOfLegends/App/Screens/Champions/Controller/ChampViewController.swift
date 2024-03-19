@@ -8,8 +8,8 @@
 import UIKit
 
 class ChampViewController: UIViewController {
-    var champView = ChampView()
     lazy var viewModel = ChampViewModel()
+    lazy var champView = ChampView(viewModel: viewModel)
     
     override func loadView() {
         super.loadView()
@@ -31,8 +31,7 @@ class ChampViewController: UIViewController {
     }
     
     @objc func didTapPlusButton() {
-        let filterVC = FilterViewController(roles: viewModel.filters, delegate: nil)  // DELEGATE TO PERDIDO
-        filterVC.filterView.filters = filterVC.viewModel.roles
+        let filterVC = FilterViewController(filters: viewModel.filters, delegate: self)
         navigationController?.pushViewController(filterVC, animated: true)
     }
     
@@ -54,7 +53,6 @@ class ChampViewController: UIViewController {
     }
     
     func showLoadedState() {
-        champView.configure(diggoChampion: viewModel.diggoChampions)
         champView.collectionView.reloadData()
         champView.spinner.stopAnimating()
     }
@@ -76,7 +74,6 @@ class ChampViewController: UIViewController {
 
 extension ChampViewController: FilterViewControllerDelegate {
     func didUpdateFilters(filters: [Filter]) {
-        print("Volta pra primeira tela filtrando a Role selecionada")
-        
+        viewModel.updateChampions(filters: filters)
     }
 }

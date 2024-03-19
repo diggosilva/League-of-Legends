@@ -8,16 +8,22 @@
 import UIKit
 
 class FilterViewModel {
-    var service = Service()
+    var filters: [Filter]
     
-    var diggoChampions: [DiggoChampion] = []
-    var roles: [Filter]
-    
-    init(roles: [Filter]) {
-        self.roles = roles
+    init(filters: [Filter]) {
+        self.filters = filters
+//        self.filters = self.filters.filter({ $0.name != "Tank" })
     }
     
     func numberOfRows() -> Int {
-        roles.count
+        return filters.count
+    }
+    
+    func cellForRowAt(indexPath: IndexPath) -> Filter {
+        return filters[indexPath.row]
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+         filters[indexPath.row].isSelected.toggle()
     }
 }

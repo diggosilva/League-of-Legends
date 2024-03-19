@@ -20,10 +20,11 @@ class FilterView: UIView {
         return tableView
     }()
     
-    var filters: [Filter] = []
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    let viewModel: FilterViewModel
+        
+     init(viewModel: FilterViewModel) {
+         self.viewModel = viewModel
+         super.init(frame: .zero)
         setupView()
     }
     
@@ -52,20 +53,18 @@ class FilterView: UIView {
 
 extension FilterView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filters.count
+        return viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as? FilterCell else { return UITableViewCell() }
-        cell.configure(roles: filters[indexPath.row], cell: cell, isSelected: filters[indexPath.row].isSelected)
+        let filter = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.configure(filter: filter)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Você tocou na célula \(indexPath.row)")
-        filters[indexPath.row].isSelected.toggle()
+        viewModel.didSelectRowAt(indexPath: indexPath)
         tableView.reloadData()
-        
-        print(filters)
     }
 }

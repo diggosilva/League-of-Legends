@@ -42,19 +42,16 @@ class ChampView: UIView {
         return label
     }()
     
-    var diggoChampionsList: [DiggoChampion] = []
+    let viewModel: ChampViewModel
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: ChampViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(diggoChampion: [DiggoChampion]) {
-        self.diggoChampionsList = diggoChampion
     }
     
     private func setupView() {
@@ -86,12 +83,12 @@ class ChampView: UIView {
 
 extension ChampView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return diggoChampionsList.count
+        return viewModel.numberOfRows()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChampCell.identifier, for: indexPath) as? ChampCell else { return UICollectionViewCell() }
-        cell.configure(diggoChampion: diggoChampionsList[indexPath.row])
+        cell.configure(diggoChampion: viewModel.cellForRowAt(indexPath: indexPath))
         return cell
     }
 }
@@ -101,6 +98,6 @@ extension ChampView: UICollectionViewDelegateFlowLayout {
         let itemsPerRow: CGFloat = 3
         let spacing: CGFloat = (itemsPerRow + 1) / itemsPerRow
         let size = (collectionView.bounds.width / itemsPerRow) - spacing
-        return CGSize(width: size, height: size)
+        return CGSize(width: size, height: 200)
     }
 }

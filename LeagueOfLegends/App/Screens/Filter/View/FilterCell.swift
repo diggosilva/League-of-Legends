@@ -34,10 +34,10 @@ class FilterCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(roles: Filter, cell: FilterCell, isSelected: Bool) {
-        nameRole.text = roles.name
-        imageRole.image = UIImage(named: roles.name)
-        cell.accessoryType = isSelected ? .checkmark : .none
+    func configure(filter: Filter) {
+        nameRole.text = filter.name
+        imageRole.image = UIImage(named: filter.name)
+        self.accessoryType = filter.isSelected ? .checkmark : .none
     }
     
     private func setupView() {
