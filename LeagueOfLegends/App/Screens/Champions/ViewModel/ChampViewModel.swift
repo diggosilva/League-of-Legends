@@ -18,8 +18,8 @@ class ChampViewModel {
     private var service = Service()
     
     var diggoChampions: [DiggoChampion] = []
-    var roles: [String] = []
     var filters: [Filter] = []
+    var roleChampionsSelected: [DiggoChampion] = []
     
     func loadDataChampions() {
         service.getChampions { diggoChampions in
@@ -31,16 +31,19 @@ class ChampViewModel {
                     uniqueRoles.insert(role)
                 }
             }
-            self.roles = Array(uniqueRoles)
-            self.roles = self.roles.sorted()
-            print("Alfabeticamente: \(self.roles)")
+            let roles = Array(uniqueRoles).sorted()
+            print("Alfabeticamente: \(roles)")
             
             // Transforma o [String] em um [Filter]
-            self.filters = self.roles.map { Filter(name: $0, isSelected: false) }
+            self.filters = roles.map { Filter(name: $0, isSelected: false) }
             
             self.state.value = .loaded
         } onError: { error in
             self.state.value = .error
         }
+    }
+    
+    func createRoleChampionsSelected() {
+        let filtered = diggoChampions.filter { $0.roles == filters.map { $0.isSelected == true } }
     }
 }

@@ -7,13 +7,7 @@
 
 import UIKit
 
-protocol FilterViewDelegate: AnyObject {
-    func didUpdateFilters(filters: [Filter])
-}
-
 class FilterView: UIView {
-    
-    weak var delegate: FilterViewDelegate?
     
     lazy var filterTableView: UITableView = {
         let tableView = UITableView()

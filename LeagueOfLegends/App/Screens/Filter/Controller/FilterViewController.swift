@@ -7,14 +7,18 @@
 
 import UIKit
 
+protocol FilterViewControllerDelegate: AnyObject {
+    func didUpdateFilters(filters: [Filter])
+}
+
 class FilterViewController: UIViewController {
     
     var filterView = FilterView()
     var viewModel: FilterViewModel
     
-    var delegate: FilterViewDelegate?
+    weak var delegate: FilterViewControllerDelegate?
     
-    init(roles: [Filter], delegate: FilterViewDelegate?) {
+    init(roles: [Filter], delegate: FilterViewControllerDelegate?) {
         self.viewModel = FilterViewModel(roles: roles)
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)

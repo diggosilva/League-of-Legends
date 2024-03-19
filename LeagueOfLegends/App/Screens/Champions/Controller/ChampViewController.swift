@@ -31,7 +31,7 @@ class ChampViewController: UIViewController {
     }
     
     @objc func didTapPlusButton() {
-        let filterVC = FilterViewController(roles: viewModel.filters)
+        let filterVC = FilterViewController(roles: viewModel.filters, delegate: nil)  // DELEGATE TO PERDIDO
         filterVC.filterView.filters = filterVC.viewModel.roles
         navigationController?.pushViewController(filterVC, animated: true)
     }
@@ -74,10 +74,9 @@ class ChampViewController: UIViewController {
     }
 }
 
-extension ChampViewController: FilterViewDelegate {
+extension ChampViewController: FilterViewControllerDelegate {
     func didUpdateFilters(filters: [Filter]) {
         print("Volta pra primeira tela filtrando a Role selecionada")
         
-        navigationController?.popToRootViewController(animated: true)
     }
 }
