@@ -1,5 +1,5 @@
 //
-//  LOLView.swift
+//  ChampView.swift
 //  LeagueOfLegends
 //
 //  Created by Diggo Silva on 12/03/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LOLView: UIView {
+class ChampView: UIView {
     lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +26,7 @@ class LOLView: UIView {
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.delegate = self
         collection.dataSource = self
-        collection.register(LOLCell.self, forCellWithReuseIdentifier: LOLCell.identifier)
+        collection.register(ChampCell.self, forCellWithReuseIdentifier: ChampCell.identifier)
         collection.alwaysBounceVertical = true
         collection.showsVerticalScrollIndicator = false
         return collection
@@ -42,19 +42,16 @@ class LOLView: UIView {
         return label
     }()
     
-    var diggoChampionsList: [DiggoChampion] = []
+    let viewModel: ChampViewModel
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: ChampViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(diggoChampion: [DiggoChampion]) {
-        self.diggoChampionsList = diggoChampion
     }
     
     private func setupView() {
@@ -84,23 +81,23 @@ class LOLView: UIView {
     }
 }
 
-extension LOLView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ChampView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return diggoChampionsList.count
+        return viewModel.numberOfRows()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LOLCell.identifier, for: indexPath) as? LOLCell else { return UICollectionViewCell() }
-        cell.configure(diggoChampion: diggoChampionsList[indexPath.row])
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChampCell.identifier, for: indexPath) as? ChampCell else { return UICollectionViewCell() }
+        cell.configure(diggoChampion: viewModel.cellForRowAt(indexPath: indexPath))
         return cell
     }
 }
 
-extension LOLView: UICollectionViewDelegateFlowLayout {
+extension ChampView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemsPerRow: CGFloat = 3
         let spacing: CGFloat = (itemsPerRow + 1) / itemsPerRow
         let size = (collectionView.bounds.width / itemsPerRow) - spacing
-        return CGSize(width: size, height: size)
+        return CGSize(width: size, height: 200)
     }
 }

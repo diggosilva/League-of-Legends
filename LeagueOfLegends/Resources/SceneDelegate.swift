@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  LOL
+//  LeagueOfLegends
 //
 //  Created by Diggo Silva on 11/03/24.
 //
@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: LOLViewController())
+        window.rootViewController = UINavigationController(rootViewController: ChampViewController())
         window.makeKeyAndVisible()
         self.window = window
     }

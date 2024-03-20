@@ -1,5 +1,5 @@
 //
-//  LOLCell.swift
+//  ChampCell.swift
 //  LeagueOfLegends
 //
 //  Created by Diggo Silva on 12/03/24.
@@ -8,8 +8,8 @@
 import UIKit
 import SDWebImage
 
-class LOLCell: UICollectionViewCell {
-    static let identifier = "LOLCell"
+class ChampCell: UICollectionViewCell {
+    static let identifier = "ChampCell"
     
     lazy var imageChamp: UIImageView = {
         let imageView = UIImageView()
@@ -22,8 +22,17 @@ class LOLCell: UICollectionViewCell {
     lazy var nameChamp: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "NOME AQUI"
         label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.textColor = .black
+        label.backgroundColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var rolesChamp: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .black
         label.backgroundColor = .white
         label.textAlignment = .center
@@ -50,6 +59,7 @@ class LOLCell: UICollectionViewCell {
     func configure(diggoChampion: DiggoChampion) {
         imageChamp.sd_setImage(with: diggoChampion.imageUrl, placeholderImage: UIImage(systemName: "circle.slash")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal))
         nameChamp.text = diggoChampion.name
+        rolesChamp.text = "\(diggoChampion.roles.joined(separator: ", "))"
         imageDifficultyColor.tintColor = diggoChampion.colorDifficulty
     }
     
@@ -61,6 +71,7 @@ class LOLCell: UICollectionViewCell {
     private func setHierarchy () {
         addSubview(imageChamp)
         addSubview(nameChamp)
+        addSubview(rolesChamp)
         addSubview(imageDifficultyColor)
     }
     
@@ -72,7 +83,10 @@ class LOLCell: UICollectionViewCell {
             imageChamp.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             nameChamp.centerXAnchor.constraint(equalTo: imageChamp.centerXAnchor),
-            nameChamp.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            nameChamp.bottomAnchor.constraint(equalTo: rolesChamp.topAnchor, constant: -5),
+            
+            rolesChamp.centerXAnchor.constraint(equalTo: imageChamp.centerXAnchor),
+            rolesChamp.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             
             imageDifficultyColor.leadingAnchor.constraint(equalTo: nameChamp.trailingAnchor, constant: 2),
             imageDifficultyColor.centerYAnchor.constraint(equalTo: nameChamp.centerYAnchor),

@@ -9,38 +9,46 @@
 /* Begin PBXBuildFile section */
 		50F7C9BD68020111BC84548F /* Pods_LeagueOfLegends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A74FAE21AE8394D0D6A34D89 /* Pods_LeagueOfLegends.framework */; };
 		925555E82BA0C2A700DB8AE9 /* ChampionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555E72BA0C2A700DB8AE9 /* ChampionResponse.swift */; };
-		925555EA2BA0EF5D00DB8AE9 /* LOLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555E92BA0EF5D00DB8AE9 /* LOLViewModel.swift */; };
+		925555EA2BA0EF5D00DB8AE9 /* ChampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555E92BA0EF5D00DB8AE9 /* ChampViewModel.swift */; };
 		925555EC2BA0EFA400DB8AE9 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555EB2BA0EFA400DB8AE9 /* Bindable.swift */; };
-		925555EE2BA0F4FD00DB8AE9 /* LOLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555ED2BA0F4FD00DB8AE9 /* LOLView.swift */; };
-		925555F02BA0F55500DB8AE9 /* LOLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555EF2BA0F55500DB8AE9 /* LOLCell.swift */; };
+		925555EE2BA0F4FD00DB8AE9 /* ChampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555ED2BA0F4FD00DB8AE9 /* ChampView.swift */; };
+		925555F02BA0F55500DB8AE9 /* ChampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925555EF2BA0F55500DB8AE9 /* ChampCell.swift */; };
 		925D53042BA225C40005106F /* DiggoChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D53032BA225C40005106F /* DiggoChampion.swift */; };
+		92752C162BA886F800F79631 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92752C152BA886F800F79631 /* Filter.swift */; };
 		92C1D6902B9F66020070E6D8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1D68F2B9F66020070E6D8 /* Service.swift */; };
-		92C1D6942B9F761D0070E6D8 /* champions.json in Resources */ = {isa = PBXBuildFile; fileRef = 92C1D6932B9F761D0070E6D8 /* champions.json */; };
 		92E06A572B9F62C0007F86D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E06A562B9F62C0007F86D8 /* AppDelegate.swift */; };
 		92E06A592B9F62C0007F86D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E06A582B9F62C0007F86D8 /* SceneDelegate.swift */; };
-		92E06A5B2B9F62C0007F86D8 /* LOLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E06A5A2B9F62C0007F86D8 /* LOLViewController.swift */; };
+		92E06A5B2B9F62C0007F86D8 /* ChampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E06A5A2B9F62C0007F86D8 /* ChampViewController.swift */; };
 		92E06A602B9F62C1007F86D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E06A5F2B9F62C1007F86D8 /* Assets.xcassets */; };
 		92E06A632B9F62C1007F86D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E06A612B9F62C1007F86D8 /* LaunchScreen.storyboard */; };
+		92F253CC2BA4A7D5004F9F3E /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F253CB2BA4A7D5004F9F3E /* FilterView.swift */; };
+		92F253CE2BA4AA78004F9F3E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F253CD2BA4AA78004F9F3E /* FilterViewController.swift */; };
+		92F253D02BA4B515004F9F3E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F253CF2BA4B515004F9F3E /* FilterCell.swift */; };
+		92F253D22BA4BD5E004F9F3E /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F253D12BA4BD5E004F9F3E /* FilterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		174DCA74EBDBC094A9149F8F /* Pods-LeagueOfLegends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeagueOfLegends.debug.xcconfig"; path = "Target Support Files/Pods-LeagueOfLegends/Pods-LeagueOfLegends.debug.xcconfig"; sourceTree = "<group>"; };
 		7B72677C11BB2491798FDFE7 /* Pods-LeagueOfLegends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeagueOfLegends.release.xcconfig"; path = "Target Support Files/Pods-LeagueOfLegends/Pods-LeagueOfLegends.release.xcconfig"; sourceTree = "<group>"; };
 		925555E72BA0C2A700DB8AE9 /* ChampionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionResponse.swift; sourceTree = "<group>"; };
-		925555E92BA0EF5D00DB8AE9 /* LOLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLViewModel.swift; sourceTree = "<group>"; };
+		925555E92BA0EF5D00DB8AE9 /* ChampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampViewModel.swift; sourceTree = "<group>"; };
 		925555EB2BA0EFA400DB8AE9 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
-		925555ED2BA0F4FD00DB8AE9 /* LOLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLView.swift; sourceTree = "<group>"; };
-		925555EF2BA0F55500DB8AE9 /* LOLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLCell.swift; sourceTree = "<group>"; };
+		925555ED2BA0F4FD00DB8AE9 /* ChampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampView.swift; sourceTree = "<group>"; };
+		925555EF2BA0F55500DB8AE9 /* ChampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampCell.swift; sourceTree = "<group>"; };
 		925D53032BA225C40005106F /* DiggoChampion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiggoChampion.swift; sourceTree = "<group>"; };
+		92752C152BA886F800F79631 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		92C1D68F2B9F66020070E6D8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		92C1D6932B9F761D0070E6D8 /* champions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champions.json; sourceTree = "<group>"; };
 		92E06A532B9F62C0007F86D8 /* LeagueOfLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeagueOfLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E06A562B9F62C0007F86D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E06A582B9F62C0007F86D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92E06A5A2B9F62C0007F86D8 /* LOLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLViewController.swift; sourceTree = "<group>"; };
+		92E06A5A2B9F62C0007F86D8 /* ChampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampViewController.swift; sourceTree = "<group>"; };
 		92E06A5F2B9F62C1007F86D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92E06A622B9F62C1007F86D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92E06A642B9F62C1007F86D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F253CB2BA4A7D5004F9F3E /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		92F253CD2BA4AA78004F9F3E /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		92F253CF2BA4B515004F9F3E /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		92F253D12BA4BD5E004F9F3E /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		A74FAE21AE8394D0D6A34D89 /* Pods_LeagueOfLegends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeagueOfLegends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,9 +92,8 @@
 		925D52FE2BA225690005106F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				925D53012BA225700005106F /* Controller */,
-				925D53002BA2256F0005106F /* View */,
-				925D52FF2BA2256C0005106F /* ViewModel */,
+				92F253C92BA4A6CF004F9F3E /* Champions */,
+				92F253CA2BA4A6E4004F9F3E /* Filter */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -94,7 +101,7 @@
 		925D52FF2BA2256C0005106F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				925555E92BA0EF5D00DB8AE9 /* LOLViewModel.swift */,
+				925555E92BA0EF5D00DB8AE9 /* ChampViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -102,8 +109,8 @@
 		925D53002BA2256F0005106F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				925555ED2BA0F4FD00DB8AE9 /* LOLView.swift */,
-				925555EF2BA0F55500DB8AE9 /* LOLCell.swift */,
+				925555ED2BA0F4FD00DB8AE9 /* ChampView.swift */,
+				925555EF2BA0F55500DB8AE9 /* ChampCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,7 +118,7 @@
 		925D53012BA225700005106F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92E06A5A2B9F62C0007F86D8 /* LOLViewController.swift */,
+				92E06A5A2B9F62C0007F86D8 /* ChampViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,12 +132,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		925D53052BA225FA0005106F /* MockData */ = {
+		92752C122BA886D300F79631 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92C1D6932B9F761D0070E6D8 /* champions.json */,
+				92F253CD2BA4AA78004F9F3E /* FilterViewController.swift */,
 			);
-			path = MockData;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		92752C132BA886DC00F79631 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92F253CB2BA4A7D5004F9F3E /* FilterView.swift */,
+				92F253CF2BA4B515004F9F3E /* FilterCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		92752C142BA886E700F79631 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				92F253D12BA4BD5E004F9F3E /* FilterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		92C1D68E2B9F65960070E6D8 /* Resources */ = {
@@ -167,13 +191,41 @@
 			isa = PBXGroup;
 			children = (
 				92C1D68E2B9F65960070E6D8 /* Resources */,
-				925D53052BA225FA0005106F /* MockData */,
+				92F253C62BA496BB004F9F3E /* App */,
+			);
+			path = LeagueOfLegends;
+			sourceTree = "<group>";
+		};
+		92F253C62BA496BB004F9F3E /* App */ = {
+			isa = PBXGroup;
+			children = (
 				925D53022BA225A50005106F /* Model */,
 				925D52FD2BA2254F0005106F /* Network */,
 				925D52FE2BA225690005106F /* Screens */,
 				925D52FC2BA2253A0005106F /* Utils */,
 			);
-			path = LeagueOfLegends;
+			path = App;
+			sourceTree = "<group>";
+		};
+		92F253C92BA4A6CF004F9F3E /* Champions */ = {
+			isa = PBXGroup;
+			children = (
+				925D53012BA225700005106F /* Controller */,
+				925D53002BA2256F0005106F /* View */,
+				925D52FF2BA2256C0005106F /* ViewModel */,
+			);
+			path = Champions;
+			sourceTree = "<group>";
+		};
+		92F253CA2BA4A6E4004F9F3E /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				92752C122BA886D300F79631 /* Controller */,
+				92752C132BA886DC00F79631 /* View */,
+				92752C142BA886E700F79631 /* ViewModel */,
+				92752C152BA886F800F79631 /* Filter.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		DF9CC655A8E748252EC8D9C4 /* Frameworks */ = {
@@ -246,7 +298,6 @@
 			files = (
 				92E06A632B9F62C1007F86D8 /* LaunchScreen.storyboard in Resources */,
 				92E06A602B9F62C1007F86D8 /* Assets.xcassets in Resources */,
-				92C1D6942B9F761D0070E6D8 /* champions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,16 +350,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E06A5B2B9F62C0007F86D8 /* LOLViewController.swift in Sources */,
+				92F253D22BA4BD5E004F9F3E /* FilterViewModel.swift in Sources */,
+				92752C162BA886F800F79631 /* Filter.swift in Sources */,
+				92E06A5B2B9F62C0007F86D8 /* ChampViewController.swift in Sources */,
 				925555EC2BA0EFA400DB8AE9 /* Bindable.swift in Sources */,
-				925555EE2BA0F4FD00DB8AE9 /* LOLView.swift in Sources */,
+				925555EE2BA0F4FD00DB8AE9 /* ChampView.swift in Sources */,
 				92C1D6902B9F66020070E6D8 /* Service.swift in Sources */,
-				925555EA2BA0EF5D00DB8AE9 /* LOLViewModel.swift in Sources */,
+				925555EA2BA0EF5D00DB8AE9 /* ChampViewModel.swift in Sources */,
+				92F253CE2BA4AA78004F9F3E /* FilterViewController.swift in Sources */,
 				925D53042BA225C40005106F /* DiggoChampion.swift in Sources */,
 				925555E82BA0C2A700DB8AE9 /* ChampionResponse.swift in Sources */,
 				92E06A572B9F62C0007F86D8 /* AppDelegate.swift in Sources */,
+				92F253D02BA4B515004F9F3E /* FilterCell.swift in Sources */,
 				92E06A592B9F62C0007F86D8 /* SceneDelegate.swift in Sources */,
-				925555F02BA0F55500DB8AE9 /* LOLCell.swift in Sources */,
+				92F253CC2BA4A7D5004F9F3E /* FilterView.swift in Sources */,
+				925555F02BA0F55500DB8AE9 /* ChampCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
