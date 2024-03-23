@@ -12,7 +12,7 @@
     A Swift iOS application League of Legends champions, being able to filter them by roles on the second screen.
     
 <p align="left">
-    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXFqcTlqNmRxZzR5M3h4M2hwb3pjZmJqeW9yM293MGw2cjR0MW5tMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GlWeo9WN30LeFMIja8/giphy.gif" width="300" max-width="40%" alt="Github"/>
+    <img src="https://media.giphy.com/media/GlWeo9WN30LeFMIja8/giphy.gif" width="300" max-width="40%" alt="Github"/>
 </p> 
 
 ## Contents
