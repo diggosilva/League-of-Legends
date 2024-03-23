@@ -22,6 +22,14 @@
 - [Setup](#setup)
 - [Credits](#credits)
 
+## Features
+
+- Dark Mode
+- Modern Collection View
+- MVVM
+- View Code (UIKit)
+- Custom elements
+
 ## Requirements
 
 - iOS 17.0 or later
@@ -47,6 +55,11 @@ $ cd <diretorio-base>/LeagueOfLegends/
 $ open LeagueOfLegends.xcodeproj/
 ```
 
+## Built With
+
+* [SDWebImage](https://github.com/SDWebImage/SDWebImage) - Asynchronous image downloader with cache support as a UIImageView category
+
 ## Credits
 
 - Diggo Silva
+- 
