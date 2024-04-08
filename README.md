@@ -1,3 +1,5 @@
+# League-of-Legends
+
 <p align="center">
     <img src="https://img.shields.io/badge/Swift-5.9.1-orange.svg" />
     <img src="https://img.shields.io/badge/Xcode-15.2.X-orange.svg" />
@@ -7,9 +9,7 @@
     </a>
 </p>
 
-# League-of-Legends
-
-    A Swift iOS application League of Legends champions, being able to filter them by roles on the second screen.
+A Swift iOS application League of Legends champions, being able to filter them by roles on the second screen.
     
 <p align="left">
     <img src="https://media.giphy.com/media/GlWeo9WN30LeFMIja8/giphy.gif" width="300" max-width="40%" alt="Github"/>
