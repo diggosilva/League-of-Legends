@@ -1,4 +1,4 @@
-# League-of-Legends
+# League of Legends
 
 <p align="center">
     <img src="https://img.shields.io/badge/Swift-5.9.1-orange.svg" />
@@ -52,7 +52,7 @@ After cloning, do the following:
 
 ```sh
 $ cd <diretorio-base>/LeagueOfLegends/
-$ open LeagueOfLegends.xcodeproj/
+$ open LeagueOfLegends.xcworkspace/
 ```
 
 ## Built With
@@ -62,4 +62,3 @@ $ open LeagueOfLegends.xcodeproj/
 ## Credits
 
 - Diggo Silva
-- 
